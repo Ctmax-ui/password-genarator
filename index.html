@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Pass Generator</title>
+  </head>
+
+  <body class="flex flex-col items-center justify-center min-h-screen transition-all">
+    <div class="shadow w-[90%] sm:w-[400px] h-[500px] rounded-md border bg-white text-center cursor-context-menu"
+    >
+      <h2
+        class="text-center p-2 text-2xl font-medium mb-3"
+        onmousedown="return false;"
+        onselectstart="return false;"
+      >
+        Password Generator
+      </h2>
+      <div class="mx-10">
+        <div class="input-box flex justify-between items-center border p-4">
+          <input type="text" class="cursor-text" disabled />
+          <span class="material-symbols-rounded cursor-pointer">copy_all</span>
+        </div>
+        <div
+          class="pass-indicator mt-2 rounded-md border w-full h-[4px] relative"
+        ></div>
+        <div class="pass-length w-full px-3 mt-4">
+          <div
+            class="details w-full cursor-context-menu"
+            onmousedown="return false;"
+            onselectstart="return false;"
+          >
+            <label class="title text-xl">Password Length</label>
+            <span class="text-xl"></span>
+          </div>
+          <input
+            class="w-full cursor-pointer"
+            type="range"
+            min="1"
+            max="30"
+            value="15"
+            step="1"
+          />
+        </div>
+
+        <div
+          class="pass-settings mt-10"
+          onmousedown="return false;"
+          onselectstart="return false;"
+        >
+          <label class="title text-xl">Settings</label>
+          <ul
+            class="options flex items-center justify-between flex-wrap text-[1.1em] gap-2 mt-3"
+          >
+            <li class="option">
+              <input type="checkbox" id="lowercase" checked />
+              <label for="lowercase" class="cursor-pointer"
+                >Lowercase (a-z)</label
+              >
+            </li>
+            <li class="option">
+              <input type="checkbox" id="uppercase" />
+              <label for="uppercase" class="cursor-pointer"
+                >Uppercase (A-Z)</label
+              >
+            </li>
+            <li class="option">
+              <input type="checkbox" id="numbers" />
+              <label for="numbers" class="cursor-pointer">Numbers (0-9)</label>
+            </li>
+            <li class="option">
+              <input type="checkbox" id="symbols" />
+              <label for="symbols" class="cursor-pointer"
+                >Symbols (!-$^+)</label
+              >
+            </li>
+            <li class="option">
+              <input type="checkbox" id="exc-duplicate" />
+              <label for="exc-duplicate" class="cursor-pointer"
+                >Exclude Duplicate</label
+              >
+            </li>
+            <li class="option">
+              <input type="checkbox" id="spaces" />
+              <label for="spaces" class="cursor-pointer">Include Spaces</label>
+            </li>
+          </ul>
+        </div>
+
+        <button
+          class="generate-btn mt-10 border px-16 w-full rounded-md py-3 hover:bg-green-600 hover:border-green-600 hover:text-white transition-all text-lg"
+        >
+          Generate Password
+        </button>
+      </div>
+    </div>
+
+    <div class="lg:absolute w-[90%] sm:w-[400px] lg:w-[300px] right-0 top-0 p-1 lg:p-4">
+      <div class="bg-white py-5 rounded-md">
+        <h3 class="text-center text-xl font-medium py-2">History</h3>
+        <ul
+          class="overflow-hidden overflow-y-scroll max-h-[50vh] w-full p-5 mt-3 border"
+          id="append-history"
+        >
+        </ul>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
